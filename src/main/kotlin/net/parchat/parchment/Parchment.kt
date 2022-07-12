@@ -1,13 +1,10 @@
 package net.parchat.parchment
 
-import net.dv8tion.jda.api.JDABuilder
-import net.dv8tion.jda.api.events.DisconnectEvent
-import net.dv8tion.jda.api.events.ReadyEvent
-import net.dv8tion.jda.api.events.guild.GuildReadyEvent
-import net.dv8tion.jda.api.hooks.ListenerAdapter
-import net.dv8tion.jda.api.hooks.SubscribeEvent
+import net.dv8tion.jda.api.entities.Guild
 import net.dv8tion.jda.api.requests.GatewayIntent
 import net.parchat.parchment.misc.Methods
+import net.parchat.parcore.Parcore
+import java.io.File
 
 private val INTENTS = listOf(
     GatewayIntent.GUILD_EMOJIS_AND_STICKERS,
@@ -21,25 +18,30 @@ private val INTENTS = listOf(
     GatewayIntent.GUILD_BANS
 )
 
+class Parchment(token: String) : Parcore(token, File("./parchment"), INTENTS) {
+
+    override fun onLoad() {
+        logger.info("We've booted.")
+    }
+
+    override fun onEnable() {
+
+    }
+
+    override fun onGuildEnable(guild: Guild) {
+
+    }
+}
+
+fun main(args: Array<String>) {
+    Parchment(Methods.fetchToken(args).toString())
+}
+
+/*
 fun main(args: Array<String>) {
     JDABuilder.createDefault(Methods.fetchToken(args), INTENTS)
         .addEventListeners(
             ParchmentBase()
         ).build().awaitReady()
 }
-
-class ParchmentBase : ListenerAdapter() {
-
-    @SubscribeEvent
-    override fun onReady(event: ReadyEvent) {}
-
-    @SubscribeEvent
-    override fun onGuildReady(event: GuildReadyEvent) {
-        println("Guten Tag!")
-    }
-
-    @SubscribeEvent
-    override fun onDisconnect(event: DisconnectEvent) {
-        println("Wiedersehen")
-    }
-}
+ */
