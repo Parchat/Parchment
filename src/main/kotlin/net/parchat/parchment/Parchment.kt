@@ -2,7 +2,6 @@ package net.parchat.parchment
 
 import net.dv8tion.jda.api.entities.Guild
 import net.dv8tion.jda.api.events.ReadyEvent
-import net.dv8tion.jda.api.hooks.EventListener
 import net.dv8tion.jda.api.requests.GatewayIntent
 import net.parchat.parchment.misc.Methods
 import net.parchat.parcore.Parcore
