@@ -3,7 +3,7 @@ package net.parchat.parchment.misc.embeds
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.MessageEmbed
 import net.dv8tion.jda.api.entities.User
-import net.parchat.parchment.misc.Methods.toColor
+import net.parchat.parchment.misc.toColor
 
 object Embed {
 
