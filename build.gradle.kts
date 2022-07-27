@@ -2,6 +2,8 @@ plugins {
     kotlin("jvm") version "1.7.10"
 
     id("com.github.johnrengelman.shadow") version "7.1.2"
+
+    application
 }
 
 java {
@@ -26,7 +28,7 @@ dependencies {
     implementation(libs.commons.cli)
     implementation(libs.commons.validator)
 
-    implementation(libs.toml)
+    implementation(libs.yaml)
 
     implementation(libs.jda.alpha)
     implementation(libs.logback.classic)
@@ -49,6 +51,10 @@ tasks {
         }
 
         archiveFileName.set("Parchment-v${rootProject.version}.jar")
+    }
+
+    application {
+        mainClass.set("net.parchat.parchment.ParchmentKt")
     }
 
     compileKotlin {
