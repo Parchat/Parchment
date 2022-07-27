@@ -1,0 +1,36 @@
+[versions]
+
+# Kotlin
+kotlin-coroutines = "1.6.4"
+
+# kmongo = "4.6.1
+
+# Apache Commons
+commons-cli = "1.5.0"
+commons-validator = "1.7"
+
+# JDA
+jda-alpha = "5.0.0-alpha.13"
+logback-classic = "1.2.11"
+
+# TOML
+# toml = ""
+
+# Triumph Team
+core = "1.0.0-SNAPSHOT"
+
+[libraries]
+
+# Kotlin
+kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+
+# JDA
+jda-alpha = { module = "net.dv8tion:JDA", version.ref = "jda-alpha" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-classic" }
+
+# Apache
+commons-cli = { module = "commons-cli:commons-cli", version.ref = "commons-cli" }
+commons-validator = { module = "commons-validator:commons-validator", version.ref = "commons-validator" }
+
+# Triumph Team
+triumph-core = { module = "dev.triumphteam:triumph-core-jda", version.ref = "core" }

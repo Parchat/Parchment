@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.7.0"
+    kotlin("jvm") version "1.7.10"
 
     id("com.github.johnrengelman.shadow") version "7.1.2"
 }
@@ -21,28 +21,30 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib", "1.7.0"))
+    implementation(kotlin("stdlib", "1.7.10"))
 
-    implementation("commons-cli:commons-cli:1.5.0")
+    implementation(libs.commons.cli)
+    implementation(libs.commons.validator)
 
-    implementation("net.dv8tion:JDA:5.0.0-alpha.13")
+    implementation(libs.jda.alpha)
+    implementation(libs.logback.classic)
 
-    implementation("ch.qos.logback:logback-classic:1.2.11")
+    implementation(libs.triumph.core)
 
-    implementation("org.litote.kmongo:kmongo-async:4.6.1")
-
-    implementation("me.carleslc.Simple-YAML:Simple-Yaml:1.8")
-
-    implementation("commons-validator:commons-validator:1.7")
-
-    implementation("dev.triumphteam:triumph-core-jda:1.0.0-SNAPSHOT")
-
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation(libs.kotlin.coroutines)
 }
 
 tasks {
     shadowJar {
-        relocate("dev.triumphteam.core", "net.parchat.plugin.libs")
+        listOf(
+            "dev.triumphteam.core",
+            "ch.qos.logback",
+            "net.dv8tion",
+            "commons-cli",
+            "commons-validator"
+        ).onEach {
+            relocate(it, "${rootProject.group}.plugin.libs.$it")
+        }
 
         archiveFileName.set("Parchment-v${rootProject.version}.jar")
     }
