@@ -3,7 +3,8 @@ package net.parchat.parchment
 import net.dv8tion.jda.api.entities.Guild
 import net.dv8tion.jda.api.requests.GatewayIntent
 import net.parchat.parchment.api.Parcore
-import net.parchat.parchment.misc.fetchToken
+import net.parchat.parchment.config.Config
+import net.parchat.parchment.misc.getDataFolder
 import org.slf4j.LoggerFactory
 import java.nio.file.Path
 
@@ -35,9 +36,11 @@ class Parchment(token: String) : Parcore(token, Path.of("./parchment"), INTENTS,
 
     }
 
-    val parcore = this.getInstance()
+    fun getParchmentInstance() = parch.getInstance()
 }
 
-fun main(args: Array<String>) {
-    Parchment(fetchToken(args).toString())
+fun main() {
+    Config().reload(getDataFolder())
+
+    Parchment(Config().botToken)
 }
