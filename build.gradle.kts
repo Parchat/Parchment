@@ -26,6 +26,8 @@ dependencies {
     implementation(libs.commons.cli)
     implementation(libs.commons.validator)
 
+    implementation(libs.toml)
+
     implementation(libs.jda.alpha)
     implementation(libs.logback.classic)
 

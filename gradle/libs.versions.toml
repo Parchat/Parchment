@@ -14,7 +14,7 @@ jda-alpha = "5.0.0-alpha.13"
 logback-classic = "1.2.11"
 
 # TOML
-# toml = ""
+toml = "3.6.0"
 
 # Triumph Team
 core = "1.0.0-SNAPSHOT"
@@ -27,6 +27,9 @@ kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", 
 # JDA
 jda-alpha = { module = "net.dv8tion:JDA", version.ref = "jda-alpha" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-classic" }
+
+# Toml
+toml = { module = "com.electronwill.night-config:toml", version.ref = "toml" }
 
 # Apache
 commons-cli = { module = "commons-cli:commons-cli", version.ref = "commons-cli" }
