@@ -1,12 +1,12 @@
 package net.parchat.parchment
 
+import dev.triumphteam.core.jda.JdaApplication
+import me.mattstudios.config.SettingsManager
 import net.dv8tion.jda.api.entities.Guild
 import net.dv8tion.jda.api.requests.GatewayIntent
-import net.parchat.parchment.api.Parcore
 import net.parchat.parchment.config.Config
-import net.parchat.parchment.misc.getDataFolder
-import org.slf4j.LoggerFactory
-import java.nio.file.Path
+import net.parchat.parchment.misc.fetchToken
+import java.io.File
 
 private val INTENTS = listOf(
     GatewayIntent.GUILD_EMOJIS_AND_STICKERS,
@@ -20,9 +20,13 @@ private val INTENTS = listOf(
     GatewayIntent.GUILD_BANS
 )
 
-class Parchment(token: String) : Parcore(token, Path.of("./parchment"), INTENTS, LoggerFactory.getLogger(Parchment::class.java)) {
+class Parchment(token: String) : JdaApplication(token, INTENTS) {
 
-    private val parch = this
+    private val parchment = this
+
+    override fun onStart() {
+
+    }
 
     override fun onReady() {
 
@@ -31,16 +35,14 @@ class Parchment(token: String) : Parcore(token, Path.of("./parchment"), INTENTS,
     override fun onGuildReady(guild: Guild) {
 
     }
-
-    override fun onShutdown() {
-
-    }
-
-    fun getParchmentInstance() = parch.getInstance()
 }
 
-fun main() {
-    Config().reload(getDataFolder())
+fun main(args: Array<String>) {
 
-    Parchment(Config().botToken)
+    val config = SettingsManager
+        .from(File("config.yml"))
+        .configurationData(Config::class.java)
+        .create()
+
+    Parchment(fetchToken(args).toString())
 }

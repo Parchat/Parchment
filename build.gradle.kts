@@ -1,5 +1,12 @@
+import dev.triumphteam.helper.core
+import dev.triumphteam.helper.Feature
+import dev.triumphteam.helper.PlatformType
+import dev.triumphteam.helper.feature
+
 plugins {
     kotlin("jvm") version "1.7.10"
+
+    id("me.mattstudios.triumph") version "0.3.1"
 
     id("com.github.johnrengelman.shadow") version "7.1.2"
 
@@ -28,12 +35,14 @@ dependencies {
     implementation(libs.commons.cli)
     implementation(libs.commons.validator)
 
-    implementation(libs.yaml)
-
     implementation(libs.jda.alpha)
     implementation(libs.logback.classic)
 
     implementation(libs.triumph.core)
+    implementation(libs.triumph.config)
+
+    //implementation(feature(Feature.COMMANDS, PlatformType.JDA, "2.0.2"))
+    //implementation(feature(Feature.LISTENERS, PlatformType.JDA, "2.0.2"))
 
     implementation(libs.kotlin.coroutines)
 }

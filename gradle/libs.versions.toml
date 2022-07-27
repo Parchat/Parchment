@@ -13,8 +13,8 @@ commons-validator = "1.7"
 jda-alpha = "5.0.0-alpha.17"
 logback-classic = "1.2.11"
 
-# TOML
-toml = "3.6.0"
+# YAML
+yaml = "1.8"
 
 # Triumph Team
 core = "1.0.0-SNAPSHOT"
@@ -28,8 +28,8 @@ kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", 
 jda-alpha = { module = "net.dv8tion:JDA", version.ref = "jda-alpha" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-classic" }
 
-# Toml
-toml = { module = "com.electronwill.night-config:toml", version.ref = "toml" }
+# YAML
+# yaml = { module = "me.carleslc.Simple-YAML:Simple-Yaml", version.ref = "yaml" }
 
 # Apache
 commons-cli = { module = "commons-cli:commons-cli", version.ref = "commons-cli" }
@@ -37,3 +37,4 @@ commons-validator = { module = "commons-validator:commons-validator", version.re
 
 # Triumph Team
 triumph-core = { module = "dev.triumphteam:triumph-core-jda", version.ref = "core" }
+triumph-config = { module = "dev.triumphteam:triumph-core-feature-config", version.ref = "core" }
